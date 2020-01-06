@@ -1,0 +1,26 @@
+一、命令
+设置数据质量：set qua 0
+画谱线叠加：get 1; pen 1; spe; get 2; pen 2; spe
+
+map出find到谱线：sta
+查看map的序列号：pop
+mul -1
+
+拟合时速度对齐（也有其他对齐方式）：
+set align v 
+
+fits转class格式数据：
+file out aa1 s
+lmv *.fits /force unit Tmb
+
+头文件内容全部显示：
+set format full
+
+!sta显示序列号：
+sta /label num 
+
+设置历元：
+set sys eq 1950
+
+二、常见问题
+class for循环 终端报错，修改命令后 敲c，可继续执行脚本命令。
