@@ -1,0 +1,9 @@
+!input: class @tihuan f1 sou
+file update &1
+find /off 0 0 /line hco* /sou &2
+for i 1 to found
+get n
+modify sou ERROR
+update 
+next
+exit
