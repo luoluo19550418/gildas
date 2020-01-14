@@ -1,0 +1,12 @@
+!input: class @tihuan f1 sou
+
+sic del mod_&1
+file out mod_&1 s
+file in &1
+find /num 1
+modify sou error
+write
+exit
+
+! 删除坏谱线也可以先drop 在sic out 1.dat
+! 可以先转成单个源的fits
