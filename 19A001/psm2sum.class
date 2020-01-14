@@ -1,0 +1,40 @@
+! input: class @psm2sum.class hco 215 19A001r+30.table
+def char seq*12[&2] sou*12[&2] other*36[&2]  epoch*12[&2] ra*12[&2] dec*12[&2]
+def real vel[&2] 
+
+sic find \./psm*.14m
+sic del all.14m
+file out all.14m s
+say 'dir%nfile'
+for i 1 to 'dir%nfile'
+  file in 'dir%file[i]'
+  find
+  copy
+next
+
+accept seq sou epoch ra dec vel other /col &3
+file in all.14m
+find
+get f
+set off 0 0 
+set lin &1*
+sic del &1.sum
+file out &1.sum single
+sic del &1_rpt.txt
+sic out &1_rpt.txt
+for i 1 to &2
+  find /sou 'sou[i]'
+  if found.GT.0
+    ave
+    sm box 4
+    set mod x vel[i]-80 vel[i]+80
+    set win vel[i]-20 vel[i]+20
+    base 1
+    say 'seq[i]' 'sou[i]' 'ra[i]' 'dec[i]' 'time/60.0' 'sigma' /format a3 a20 a20 a20 f6.1 f6.3 
+    write
+  else
+    say 'seq[i]' 'sou[i]' 'ra[i]' 'dec[i]' '0' '0' /format a3 a20 a20 a20 f6.1 f6.3
+  endif
+next
+sic out
+exit
