@@ -1,0 +1,28 @@
+!2012
+sic delete \/home/res/user/csluo/tsys/bzy2012.14m
+file out \/home/res/user/csluo/tsys/bzy2012.14m s
+sic find \/home/res/lsbuser/BZY/psm_201201*U.14m
+for i 1 to 'dir%nfile'
+	file in 'dir%file[i]'
+	find /line 12CO*
+	for j 1 to found
+		get next
+		el=ELEVATION*180/3.14 !1.1338
+		if el.gt.65 .and. el.lt70
+			write
+	next
+next
+
+sic find \/home/res/lsbuser/BZY/psm_201212*.14m
+for i 1 to 'dir%nfile'
+	file in 'dir%file[i]'
+	find /line 12CO*
+	for j 1 to found
+		get next
+		el=ELEVATION*180/3.14 !1.1338
+		if el.gt.65 .and. el.lt70
+			write
+	next
+next
+
+!2013
