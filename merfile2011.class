@@ -1,3 +1,5 @@
+!统计Tsys，2010-2020
+!sic find \/home/res/lsbuser/BZY/psm_201[12345]01*U.14m 可同时找 2011-2015
 !2011
 def real el
 sic delete \/home/res/user/csluo/tsys/bzy2011U.14m
