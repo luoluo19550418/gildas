@@ -1,4 +1,5 @@
 !input: astro @ploLST.pro 20A006
+! .table 格式见逯登荣老师 class手册
 
 dev i w
 cat &1.table
