@@ -1,0 +1,19 @@
+file in ngc12co.sum
+find /number 21000 22000
+!for i 21778 to 21786
+!get n
+!drop i
+!next
+drop 21778
+drop 21779
+drop 21780
+drop 21781
+drop 21782
+drop 21783
+drop 21784
+drop 21785
+drop 21786
+
+sic delete a.sum
+file out a.sum s
+copy

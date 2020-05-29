@@ -1,0 +1,14 @@
+! input: class @he.class ngc13cogaussfit1.dat ngc13cogaussfit2.dat 30375 ngc 13co
+def char seq*12[&3] line*12[&3] date*36[&3] rms*12[&3] tel*12[&3]
+def char vel*12[&3] width*12[&3] tb*12[&3] d1*36[&3] d2*36[&3] d3*36[&3] d4*36[&3] d5*36[&3] d6*36[&3] d8*36[&3] d10*36[&3] d12*36[&3] d13*36[&3]
+
+accept seq line date rms tel /col &1
+accept d1 d2 d3 d4 d5 d6 vel d8 width d10 tb d12 d13 /col &2
+
+sic delete &4&5.dat
+sic output &4&5.dat
+for i 1 to &3
+  say 'seq[i]' 'date[i]' 'line[i]' 'tel[i]' 'rms[i]' 'vel[i]' 'width[i]' 'tb[i]' /format a10 a20 a20 a20 a20 a20 a20 a20
+next
+sic output
+exit

@@ -1,0 +1,7 @@
+!input class @printfit ngc 12co
+
+sic delete &1&2gaussfit2.dat
+file in &1&2gaussfit.sum
+find
+print fit /output &1&2gaussfit2.dat
+exit

@@ -1,0 +1,16 @@
+! input: class @jiequ.class ngc 12co
+
+sic delete &1&2_jiequ.sum
+file out &1&2_jiequ.sum single
+
+file in &1&2_drop.sum
+find
+for i 1 to found
+  get n
+  if found.gt.0
+    set unit v
+    extract -30 50 v
+    write
+  endif
+next
+exit

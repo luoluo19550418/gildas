@@ -1,0 +1,15 @@
+! input: class @find_ngc2264.class ngc 13co
+
+sic del &1&2.sum
+file out &1&2.sum s
+for i 1 to 7
+  sic find \/home/res/lsbuser/BZY/psm_201'i'*L.14m
+  for j 1 to 'dir%nfile'
+    file in 'dir%file[j]'
+    find /sou NGC2264 /off 0 0 /line &2* /obs 01-OCT-2011 21-DEC-2017
+    if found.GT.0
+      copy
+    endif
+  next
+next
+exit

@@ -1,0 +1,14 @@
+! input: class @modify.class ngc 13co
+
+file in &1&2_drop.sum
+find
+
+sic delete &118co_drop.sum
+file out &118co_drop.sum single
+for i 1 to found
+  get next
+  modify frequency 109782.173
+  modify line C18O(1-0)
+  write
+next
+exit

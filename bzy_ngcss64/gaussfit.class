@@ -1,0 +1,25 @@
+!input class @gaussfit ngc 12co
+
+sic delete &1&2gaussfit1.dat
+sic output &1&2gaussfit1.dat
+sic delete &1&2gaussfit.sum
+file out &1&2gaussfit.sum s
+
+file in &1&2_jiequ.sum
+find
+set unit v
+set win -5 20
+for i 1 to found
+  get n
+  base 1 
+  line 1 "0 2.25 0 2.47 0 0.52"   !line /input line.txt(0 2.25 0 2.47 0 0.52)
+  min
+  write
+  say 'number' 'line' 'r%head%gen%cdobs' 'sigma' 'telescope'
+  next
+sic out 
+exit
+  
+
+  
+ 
