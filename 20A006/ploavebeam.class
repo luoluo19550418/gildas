@@ -1,0 +1,19 @@
+!@zwchen.class 18:20:22.80 -16:11:34.0 G015.03-0.67a
+sic find .\zwchen*.14m  
+
+for i 1 to 'dir%nfile'
+	file in 'dir%file[i]'
+	for j 1 to 9
+		!set mat 1000 !此处用 set mat 1000，会把附近的源也找出来，所以不可取
+		!find /position &1 &2 equatorial 2000 /tel B'j'* !找不到 b1*，用find /num，因为同一源number号一致
+		set mode x -50 80
+		set win 0 40 
+		ave
+		smooth box 2
+		base 1
+		plot
+		sic delete &3_'i'_B'j'.eps
+		hardcopy &3_'i'_B'j'.eps /dev eps fast
+	next
+next
+exit
