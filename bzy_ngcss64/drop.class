@@ -17,3 +17,5 @@ drop 21786
 sic delete a.sum
 file out a.sum s
 copy
+
+! 1、找出谱线序号；2、find 所有谱线，drop 序号。
