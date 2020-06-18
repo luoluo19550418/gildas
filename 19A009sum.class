@@ -1,0 +1,24 @@
+!input: class @sum.class hcccn
+sic find \/home/res/user/19A009/psm_2020*.14m
+sic del all.rgd
+file out all.rgd s
+for i 1 to 'dir%nfile'
+  file in 'dir%file[i]'
+  find
+  if found.gt.0
+    copy
+  endif
+next
+
+file in all.rgd
+dev i w 
+find /off 0 0 /line &1*
+ave /n
+plo
+set mod x -150 150; plo
+set win -50 50
+base 1
+plo
+sic del \/home/res/csluo/19A009/&1.eps
+hardcopy \/home/res/csluo/19A009/&1.eps /dev eps fast
+say 'time/60' 'sigma'
