@@ -1,18 +1,21 @@
-!input: class @sum.class hcccn
-sic find \/home/res/user/19A009/psm_2020*.14m
-sic del all.rgd
+!input: class @sum.class oph-a hcccn !脚本运行 给参数1：源名； 参数2：谱线名
+sic find \/home/res/user/19A009/psm_2020*.14m ! 在给定路径下找 包含特定字符的文件名
+
+! 合并找到的.14m文件中给定源名和谱线名的数据
+sic del all.rgd 
 file out all.rgd s
 for i 1 to 'dir%nfile'
   file in 'dir%file[i]'
-  find
+  find /off 0 0 /source &1* /line &2*
   if found.gt.0
     copy
   endif
 next
 
+! 对多遍数据进行平均，得到平均谱图
 file in all.rgd
 dev i w 
-find /off 0 0 /line &1*
+find /off 0 0 /source &1* /line &2*
 ave /n
 plo
 set mod x -150 150; plo
