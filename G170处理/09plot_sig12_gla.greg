@@ -1,0 +1,26 @@
+dev i w
+set font d
+col x 3 y 4 z 5 /file mosaic_12COsig.dat
+set box m
+rgdata x y z /bla -1
+!random 100 /blanking -1
+lut rainbow3
+!lut black
+rgdata x y z /blanking -1
+lim -67.5 67.5 -67.5 67.5
+limits /reverse x
+plot !/scalin lin 2 100
+set sys gala
+projection 173.25 2.75 /type radio
+set angle min
+lim -67.5 67.5 -67.5 67.5
+lim /reverse x
+box p p /abs
+lab "Galactic Longtitude(\r^)" /x
+lab "Galactic Latitude(\r^)" /y
+wed
+lev 2 to 100
+rgmap /per 20
+sic delete sig_12COgla.eps
+hard sig_12COgla.eps /dev eps color
+exit

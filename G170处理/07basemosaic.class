@@ -1,0 +1,27 @@
+!input: class @07basemosaic.class
+!        mosaic_*CO.bur
+!output: mosaic_*CO.bas
+
+say "starting 07basemosaic.class"
+sic mess class s=fe
+set unit v
+sic find mosaic_*CO.bur
+say 'dir%nfile'
+if dir%nfile.gt.0 then
+	for i 1 to dir%nfile
+		sic delete 'dir%file[i]'.bas
+		file out 'dir%file[i]'.bas s
+		file in 'dir%file[i]'
+		find /all
+		for j 1 to found
+			get next
+			set mode x -90 55
+			set window -30 -5
+			base 1 !基线拟合
+			if sigma.LT.5
+				write
+			endif
+		next
+	next
+endif
+exit

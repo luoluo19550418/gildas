@@ -1,0 +1,18 @@
+!input:
+
+set unit v
+set angle min
+file in mosaic_12CO.bur.bas
+!find /range 
+find /off 0 *
+strip 12COpvl0
+
+file in mosaic_13CO.bur.bas
+!find /range
+find /off 0 *
+strip 13COpvl0
+
+file in mosaic_18CO.bur.bas
+find /off 0 *
+strip 18COpvl0
+exit

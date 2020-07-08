@@ -1,0 +1,27 @@
+!input: class @04basesum.class
+!output: 'dir%file[i][1:13]'sum.bas
+
+say "starting 04basesum.class"
+sic mess class s=fe
+set unit v
+sic find \/home/res/user/csluo/G170+00/*.sum
+say 'dir%nfile'
+if dir%nfile.gt.0 then
+	for i 1 to dir%nfile
+		sic delete 'dir%file[i]'.bas
+		file out 'dir%file[i]'.bas s
+		file in 'dir%file[i]'
+		find /all
+		for j 1 to found
+			get next
+			set mode x -90 55
+			set window -30 -5
+			base 1 !基线拟合
+			if sigma.LT.5
+				write
+			endif
+		next
+		sic delete 'dir%file[i]'
+	next
+endif
+exit

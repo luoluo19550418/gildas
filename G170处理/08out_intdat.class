@@ -1,0 +1,50 @@
+!input: class @08outdat.class
+!        mosaic_*CO.bas
+!output: 'dir%file[i][1:11]'sig.dat
+!12和13分开
+
+!-----------------------------------------------------12co------------------------------------------
+say "starting 12co"
+sic mess class s=fe
+set unit v
+sic delete mosaic_12COsig.dat
+sic output mosaic_12COsig.dat
+file in mosaic_12CO.bur.bas
+find /all
+for j 1 to found
+	get next
+	if ((sigma).lt.1.0).and.((tdv(-30,-5)).gt.(1.22245*sigma)) !!!对谱线进行噪声筛选!!!
+		say 'j' 'sigma' 'off_lambda' 'off_beta' 'tdv(-30,-5)' !计算速度v1和v2间的积分强度
+	else
+		say 'j' 'sigma' 'off_lambda' 'off_beta' 0
+	endif
+next
+
+!------------------------------------------------------13co------------------------------------
+sic delete mosaic_13COsig.dat
+sic output mosaic_13COsig.dat
+file in mosaic_13CO.bur.bas
+find /all
+for j 1 to found
+	get next
+	if ((sigma).lt.0.30).and.((tdv(-30,-5)).gt.(1.22245*sigma)) !!!对谱线进行噪声筛选!!!为什么是1.22245倍？
+		say 'j' 'sigma' 'off_lambda' 'off_beta' 'tdv(-30,-5)' !计算速度v1和v2间的积分强度
+	else
+		say 'j' 'sigma' 'off_lambda' 'off_beta' 0
+	endif
+next
+
+!---------------------------------------------18co---------------------------------------------------
+sic delete mosaic_18COsig.dat 
+sic output mosaic_18COsig.dat
+file in mosaic_18CO.bur.bas
+find /all
+for j 1 to found
+        get next
+        if ((sigma).lt.0.30).and.((tdv(-30,-5)).gt.(1.22245*sigma)) !!!对谱线进行噪声筛选!!!为什么是1.22245倍？ 
+                say 'j' 'sigma' 'off_lambda' 'off_beta' 'tdv(-30,-5)' !计算速度v1和v2间的积分强度
+        else
+                say 'j' 'sigma' 'off_lambda' 'off_beta' 0
+        endif
+next
+exit

@@ -1,0 +1,34 @@
+!input: class @08out_intdat.class
+!        mosaic_*CO.bas
+!output: 'dir%file[i][1:11]'sig.dat
+
+!-----------------------------------------------------12co--------------------------------------
+say "starting 12co vcdat!"
+sic mess class s=fe
+set unit v
+set angle min
+file in mosaic_12CO.bur.bas
+find /all
+sic delete mosaic_12COcv.dat
+!print area -7 -6 -5 -4 -3 /output mosaic_12COcv5.dat
+!print area -19 -18 -17 -16 -15 /output mosaic_12COcv17.dat
+print area -23 -22 -21 -20 -19 -18 -17 -16 -15 /output mosaic_12COcv20.dat
+
+
+!say "starting 13co vcdat!"
+!sic mess class s=fe
+!set unit v
+!file in mosaic_13CO.bur.bas
+!find /all
+!sic delete mosaic_13COcv.dat
+!print area -30 -20 -10 0 10 /output mosaic_13COcv.dat
+
+!say "starting 18co vcdat!"
+!sic mess class s=fe
+!set unit v
+!file in mosaic_18CO.bur.bas
+!find /all
+!sic delete mosaic_18COcv.dat
+!!print area -30 -20 -10 0 10 /output mosaic_18COcv.dat
+!print area -20 -19 -18 -17 -16 /output mosaic_18COcv.dat
+!exit

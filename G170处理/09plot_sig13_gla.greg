@@ -1,0 +1,27 @@
+dev i w
+say "starting plot 13sig dat gla"
+!-----------------------------------------------------------13co-----------------------------
+set font d
+col x 3 y 4 z 5 /file mosaic_13COsig.dat
+set box m
+rgdata x y z /blanking -1
+!random 100 /blanking -1
+lut rainbow3
+!lut black
+lim -67.5 67.5 -67.5 67.5
+limits /reverse x
+plot /scalin lin 2 30
+set sys gala
+projection 173.25 2.75 /type radio
+set angle min
+lim -67.5 67.5 -67.5 67.5
+lim /reverse x
+box p p /abs
+lab "Galactic Longtitude(\r^)" /x
+lab "Galactic Latitude(\r^)" /y
+wed
+lev 2 to 30
+rgmap /per 10
+sic delete sig_13COgla.eps
+hard sig_13COgla.eps /dev eps color
+exit

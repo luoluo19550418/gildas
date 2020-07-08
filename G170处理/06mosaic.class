@@ -1,0 +1,79 @@
+!input: class 06mosic.class
+!output: all_12CO.bas; mosaic_12CO.bur; mosaic_12CO.fits
+
+say "starting 06mosic.class"
+sic mess class s=fe
+!--------------------------------------------12CO---------------------------------------------
+file in all_12CO.rgd
+sic dele all_12CO.bas
+file out all_12CO.bas s
+find
+set unit v
+for i 1 to found
+	get next
+	set mod x -90 55
+	set win -30 -5
+	base 1
+	let time ((1/sigma)/sigma)
+	modify position 173.25 2.75 !中心坐标
+	modify source 173.25+2.75
+	!let telescope "DLH14m"
+	write
+next
+
+file in all_12CO.bas
+find
+set ang s
+let map%beam 52
+let map%cell 30
+sic dele mosaic_12CO.tab
+sic dele mosaic_12CO.lmv
+sic dele mosaic_12CO.wei
+table mosaic_12CO new !/resample 2001 1001 0 0.15874 v   !!!对bas进行重采样!!!
+xy_map mosaic_12CO                                    !!!生成tab、lmv、wei 文件!!!
+sic dele mosaic_12CO.tab
+sic dele mosaic_12CO.wei
+sic dele mosaic_12CO.bur
+file out mosaic_12CO.bur s
+lmv mosaic_12CO.lmv
+sic dele mosaic_12CO.fits
+vector\fits mosaic_12CO.fits from mosaic_12CO.lmv
+sic dele mosaic_12CO.lmv
+
+!--------------------------------------------13CO---------------------------------------
+file in all_13CO.rgd
+sic dele all_13CO.bas
+file out all_13CO.bas s
+find
+set unit v
+for i 1 to found
+	get next
+	set mod x -90 55
+	set win -30 -5
+	base 1
+	let time ((1/sigma)/sigma)
+	modify position 173.25 2.75 !中心坐标
+	modify source 173.25+2.75
+	!let telescope "DLH14m"
+	write
+next
+
+file in all_13CO.bas
+find
+set ang s
+let map%beam 52
+let map%cell 30
+sic dele mosaic_13CO.tab
+sic dele mosaic_13CO.lmv
+sic dele mosaic_13CO.wei
+table mosaic_13CO new !/resample 2001 1001 0 0.15874 v   !!!对bas进行重采样!!!
+xy_map mosaic_13CO                                    !!!生成tab、lmv、wei 文件!!!
+sic dele mosaic_13CO.tab
+sic dele mosaic_13CO.wei
+sic dele mosaic_13CO.bur
+file out mosaic_13CO.bur s
+lmv mosaic_13CO.lmv
+sic dele mosaic_13CO.fits
+vector\fits mosaic_13CO.fits from mosaic_13CO.lmv
+sic dele mosaic_13CO.lmv
+exit

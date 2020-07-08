@@ -1,0 +1,9 @@
+dev i w
+define fits x mosaic_12CO.fits
+lim /rgda x
+lut black
+plo /scal lin 173.25 2.75
+wed
+box /abs
+sic dele zmosaic_12CO.eps
+hard zmosaic_12CO.eps /dev color

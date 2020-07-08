@@ -1,0 +1,13 @@
+!input: class @077modifyfreq.class
+
+sic mess class s=fe
+file in mosaic_13CO.bur.bas
+find
+file out mosaic_18CO.bur.bas single
+for i 1 to found
+	get next
+	modify frequency 109782.173
+	modify line C18O(1-0)
+	write
+next
+exit

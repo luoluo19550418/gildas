@@ -1,0 +1,27 @@
+!input: class @02basergd.class
+!output: dir%file[i][1:13]'.bas
+
+sic mess class s=fe
+say "starting 02basergd.class"
+set unit v
+sic find \/home/res/user/csluo/G170+00/*.rgd
+say 'dir%nfile'
+if dir%nfile.gt.0 then
+	for i 1 to dir%nfile
+		sic delete 'dir%file[i]'.bas
+		file out 'dir%file[i]'.bas s
+		file in 'dir%file[i]'
+		find /all
+		for j 1 to found
+			get next
+			set mode x -90 55
+			set window -30 -5
+			base 1 !基线拟合
+			if sigma.LT.5
+				write
+			endif
+		next
+		sic delete 'dir%file[i]' !删除.rgd
+	next
+endif
+exit

@@ -1,0 +1,21 @@
+dev i w
+set box m
+for i 4 to 11
+	clear
+	col x 2 y 3 z 'i' /file mosaic_12COcv20.dat
+	rgdata x y z /bla -1
+	!random 100 /blanking -1
+	lut rainbow3
+	lim -67.5 67.5 -67.5 67.5
+	limits /reverse x
+	plot /scalin lin 1 30
+	box /abs
+	lab "offset(arcmin)" /x
+	lab "offset(arcmin)" /y
+	draw text 0 0 'i'
+	wed
+	lev 1 to 30
+	rgmap /per 10
+	sic delete cv20_12CO_'i'.eps
+	hard cv20_12CO_'i'.eps /dev eps color
+next

@@ -1,0 +1,34 @@
+!input: class @01hebur.class sou.txt 16
+!output: 'sou[i]'_12CO.rgd
+
+sic mess class s=fe
+say "starting 01hebur.class!"
+def char sou*12[&2]
+accept sou /col &1
+for i 1 to &2
+	sic find \/home/res/user/csluo/G170+00/'sou[i]'/'sou[i]'_*U.bur !USB
+	if dir%nfile.gt.0 then
+		sic delete \/home/res/user/csluo/G170+00/'sou[i]'_12CO.rgd
+		file out \/home/res/user/csluo/G170+00/'sou[i]'_12CO.rgd s
+		for j 1 to dir%nfile
+			file in 'dir%file[j]'
+			find /lin 12CO*
+			if found.GT.0
+				copy
+			endif
+		next
+	endif
+	sic find \/home/res/user/csluo/G170+00/'sou[i]'/'sou[i]'_*L.bur !LSB
+	if dir%nfile.gt.0 then
+		sic delete \/home/res/user/csluo/G170+00/'sou[i]'_13CO.rgd
+		file out \/home/res/user/csluo/G170+00/'sou[i]'_13CO.rgd s
+		for k 1 to dir%nfile
+			file in 'dir%file[k]'
+			find /lin 13CO*
+			if found.GT.0
+				copy
+			endif
+		next
+	endif
+next
+exit

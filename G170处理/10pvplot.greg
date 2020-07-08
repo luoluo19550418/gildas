@@ -1,0 +1,55 @@
+dev i w
+set angle min
+image 12COpvb0
+limit -25 -5 * * /rgdata
+lut rainbow3
+plot /scal linear 3 15
+!set sys gal
+lev 3 to 15
+rgmap /abs 3
+wed
+lab "v(km/s)" /x
+lab "gb(arcmin)" /y
+axis xl /unit r
+axis xu
+axis yl /unit m
+axis yr
+sic delete 12COpvb0.eps
+hard 12COpvb0.eps /dev eps color
+
+cle
+image 13COpvb0
+limit -25 -5 * * /rgdata
+lut rainbow3
+plot /scal linear 1 6
+!set sys gal
+lev 1 to 6
+rgmap /abs 2
+wed
+lab "v(km/s)" /x
+lab "gl(arcmin)" /y
+axis xl /unit r
+axis xu
+axis yl /unit m
+axis yr
+sic delete 13COpvb0.eps
+hard 13COpvb0.eps /dev eps color
+
+cle
+image 18COpvb0
+limit -25 -5 * * /rgdata
+lut rainbow3
+plot /scal linear 2 6
+!set sys gal
+lev 2 to 6
+rgmap /abs 2
+wed
+lab "v(km/s)" /x
+lab "gl(arcmin)" /y
+axis xl /unit r
+axis xu
+axis yl /unit m
+axis yr
+sic delete 18COpvb0.eps
+hard 18COpvb0.eps /dev eps color
+exit

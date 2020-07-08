@@ -1,0 +1,18 @@
+file in mosaic_18CO.bur.bas
+find
+set ang s
+let map%beam 52
+let map%cell 30
+sic dele mosaic_18CO.tab
+sic dele mosaic_18CO.lmv
+sic dele mosaic_18CO.wei
+table mosaic_18CO new !/resample 2001 1001 0 0.15874 v   !!!对bas进行重采样!!!
+xy_map mosaic_18CO                                    !!!生成tab、lmv、wei 文件!!!
+sic dele mosaic_18CO.tab
+sic dele mosaic_18CO.wei
+sic dele mosaic_18CO.bur
+file out mosaic_18CO.bur s
+lmv mosaic_18CO.lmv
+sic dele mosaic_18CO.fits
+vector\fits mosaic_18CO.fits from mosaic_18CO.lmv
+sic dele mosaic_18CO.lmv

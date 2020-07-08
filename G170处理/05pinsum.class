@@ -1,0 +1,33 @@
+!input: class 05pinsum.class
+!output: all_12CO.rgd
+
+say "starting 05pinsum.class"
+sic mess class s=fe
+sic delete \/home/res/user/csluo/G170+00/all_12CO.rgd
+file out \/home/res/user/csluo/G170+00/all_12CO.rgd s
+sic find \/home/res/user/csluo/G170+00/*_12CO.rgd.bas.sum.bas      !USB
+if dir%nfile.gt.0 then
+	for i 1 to dir%nfile
+		file in 'dir%file[i]'
+		find /lin 12CO*
+		if found.GT.0
+			copy
+		endif
+		sic delete 'dir%file[i]'
+	next
+endif
+
+sic delete \/home/res/user/csluo/G170+00/all_13CO.rgd
+file out \/home/res/user/csluo/G170+00/all_13CO.rgd s
+sic find \/home/res/user/csluo/G170+00/*_13CO.rgd.bas.sum.bas      !LSB
+if dir%nfile.gt.0 then
+	for j 1 to dir%nfile
+		file in 'dir%file[j]'
+		find /lin 13CO*
+		if found.GT.0
+			copy
+		endif
+		sic delete 'dir%file[j]'
+	next
+endif
+exit
