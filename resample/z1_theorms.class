@@ -1,0 +1,16 @@
+!input: class @z1_theorms 0495+050_05040811L -30 60
+
+file in \/home/res/user/csluo/resample/&1.14m
+sic del theorms.dat
+sic out theorms.dat
+
+find /range -5 5 -5 5
+for i 1 to found
+  get n
+  set mod x &2-60 &3+60
+  set win &2 &3
+  base 1
+  say 'sigma' /format f8.3
+next
+sic output
+exit

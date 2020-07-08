@@ -1,0 +1,15 @@
+! class @sayrms.class 0495+050_05040811L_180
+
+file in &1
+sic delete &1.dat
+sic output &1.dat
+find /range -5 5 -5 5
+for i 1 to found
+  get next
+  set mode x -100 120
+  set win -30 60
+  base 1
+  say 'sigma' /format f8.3
+next
+sic output
+exit

@@ -1,0 +1,29 @@
+! class @regrid 1720-050_06171628L 180 90 
+
+file in \/home/res/user/csluo/resample/&1.14m
+
+sic del numline_&2.dat
+sic out numline_&2.dat
+set mat '&2/60'
+find /off 0 0
+say 'found'
+sic output
+
+set angle min
+let map%beam &2
+let map%cell &3
+
+sic delete *.tab
+sic delete *.lmv
+sic delete *.wei
+
+find /all
+get f
+if found.GT.0 then
+  table &1 new              !/resample 16384 10826 0.0 'velo_step' velocity
+  xy_map &1
+endif
+sic delete &1_&2.bur
+file out &1_&2.bur single
+lmv &1
+exit
