@@ -1,0 +1,21 @@
+!class @01avesou 20240816
+!主要是数据分类
+
+def int num[5885]
+def char sou*10[5885]
+accept num sou /col source.txt
+
+sic dele NH3_&1_ave.bur
+file out NH3_&1_ave.bur si
+
+file in NH3_&1.bur
+find
+for i 1 to 5885
+	say 'sou[i]'
+	find /sou 'sou[i]'_*
+	if found.GT.0
+		ave /nocheck
+		write
+	endif
+next
+exit

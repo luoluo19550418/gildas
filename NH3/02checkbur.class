@@ -1,0 +1,22 @@
+!class @02checkbur 20240816
+
+set unit v
+
+sic dele rms_&1.dat
+sic output rms_&1.dat
+
+file in NH3_&1_ave.bur
+find
+for i 1 to found
+	get n
+	set mod x -200 200
+	set mod y t
+	set win -100 100
+	base 1
+	say 'source' 'sigma' /format a20 f6.2 
+	sm box 32
+	plot 
+	hard 'i'.png /dev png color
+next
+sic output
+exit
